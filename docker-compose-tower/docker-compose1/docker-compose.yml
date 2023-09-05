@@ -1,0 +1,35 @@
+  
+version: '3.8'
+
+services:
+  web:
+    build: ./ #Use dockerfile in current directory
+    ports:
+      - 8080:80
+    container_name: nginx
+    volumes:
+      - jjtech-volume:/opt
+    networks:
+      - frontend
+      - backend
+    
+
+  # mysql:
+  #   image: mysql
+  #   ports: 
+  #     - 3306
+  #   container_name: mysql
+  #   volumes:
+  #     - data:/var/lib/mysql
+  #   networks:
+  #     - backend
+
+networks: 
+  frontend:
+  backend:
+
+volumes:
+  jjtech-volume:
+  data:
+
+  
